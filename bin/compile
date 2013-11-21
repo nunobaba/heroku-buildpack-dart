@@ -21,17 +21,16 @@ BUILD_DIR=$(cd "$1/" && pwd)
 CACHE_DIR=$(cd "$2/" && pwd)
 
 # the directory in which the packages will be stored
-PACKAGES_DIR="/app/tmp/repo.git/.cache"
+PACKAGES_DIR="tmp/repo.git/.cache"
 
 # this variable is used by pub to determine the package install location
 PUB_CACHE="$CACHE_DIR/pub-cache"
-# PUB_CACHE="/app/tmp/repo.git/.cache"
 export PUB_CACHE
 mkdir -p $PUB_CACHE
 
-message "----> Installation cache directory is: $CACHE_DIR"
-message "----> Packages installed in: $PUB_CACHE"
-message "----> Packages directory is: $PACKAGES_DIR"
+message "----> cache dir: $CACHE_DIR"
+message "----> pub cache: $PUB_CACHE"
+message "----> packages dir: $PACKAGES_DIR"
 
 MACHINE=`uname -a`
 message "----> Welcome, this machine is: $MACHINE"
