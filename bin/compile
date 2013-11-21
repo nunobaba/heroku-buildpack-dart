@@ -83,8 +83,8 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
 done
 
 # move packages from cache directory into build directory
-# cd $CACHE_DIR
-# cp -r $CACHE_DIR/pub-cache $BUILD_DIR/$PACKAGES_DIR
+cd $CACHE_DIR
+cp -r $CACHE_DIR/pub-cache $BUILD_DIR/$PACKAGES_DIR
 
 # run Dart build script
 cd $BUILD_DIR
