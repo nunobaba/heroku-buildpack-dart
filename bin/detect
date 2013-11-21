@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+# Detect the language of the project, e.g.
 # bin/detect <build-dir>
+
 set -e
 
 if test -n "$(find "$1" -type f -name '*.dart' | sed 1q)"
