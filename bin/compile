@@ -21,7 +21,7 @@ BUILD_DIR=$(cd "$1/" && pwd)
 CACHE_DIR=$(cd "$2/" && pwd)
 
 # the directory in which the packages will be stored
-PACKAGES_DIR="tmp/repo.git/.cache"
+# PACKAGES_DIR="tmp/cache"
 
 # this variable is used by pub to determine the package install location
 PUB_CACHE="$CACHE_DIR/pub-cache"
@@ -30,7 +30,7 @@ mkdir -p $PUB_CACHE
 
 message "----> Installation cache directory is: $CACHE_DIR"
 message "----> Packages installed in: $PUB_CACHE"
-message "----> Packages directory is: $PACKAGES_DIR"
+# message "----> Packages directory is: $PACKAGES_DIR"
 
 MACHINE=`uname -a`
 message "----> Welcome, this machine is: $MACHINE"
@@ -49,17 +49,13 @@ if [ -z "$DART_SDK_URL" ]; then
 fi
 
 cd $BUILD_DIR
-mkdir -p $PACKAGES_DIR
-
+# mkdir -p $PACKAGES_DIR
 
 message "----> Installing Dart VM via URL $DART_SDK_URL"
-
 cd $CACHE_DIR
 curl -L $DART_SDK_URL -o - | tar xzf -
 
-
 message "----> Copy Dart binaries to app root"
-
 cp -r $CACHE_DIR/dart-sdk $BUILD_DIR
 
 # we need to copy the sdk into the /app folder in order for the sdk libraries to be referenced correctly
@@ -72,14 +68,14 @@ message "----> Dart cmd found at $DART_BIN"
 CAN_DART_RUN=`/app/dart-sdk/bin/dart --version`
 message "----> Dart reports version: $CAN_DART_RUN"
 
-
 message "----> Install packages"
-
 cd $BUILD_DIR
 
 # Getting dependencies just straight out of pub repositories.
 # They get available at /app/.pub-cache/hosted/pub.dartlang.org/
 /app/dart-sdk/bin/pub get
+
+
 
 # for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
 #     pub_dir=`dirname $filename`
