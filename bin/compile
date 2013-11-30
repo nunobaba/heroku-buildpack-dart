@@ -24,12 +24,11 @@ CACHE_DIR=$(cd "$2/" && pwd)
 PACKAGES_DIR="tmp/repo.git/.cache"
 
 # this variable is used by pub to determine the package install location
-PUB_CACHE="$CACHE_DIR/pub-cache"
-# PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
+# PUB_CACHE="$CACHE_DIR/pub-cache"
+PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
 export PUB_CACHE
 mkdir -p $PUB_CACHE
 
-message "----> cache dir: $CACHE_DIR"
 message "----> pub cache: $PUB_CACHE"
 message "----> packages dir: $PACKAGES_DIR"
 
@@ -83,6 +82,7 @@ for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cach
 done
 
 # move packages from cache directory into build directory
+message "----> coming back to cache dir: $CACHE_DIR"
 cd $CACHE_DIR
 cp -r $CACHE_DIR/pub-cache $BUILD_DIR/$PACKAGES_DIR
 
