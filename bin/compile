@@ -24,8 +24,8 @@ CACHE_DIR=$(cd "$2/" && pwd)
 PACKAGES_DIR="tmp/repo.git/.cache"
 
 # this variable is used by pub to determine the package install location
-# PUB_CACHE="$CACHE_DIR/pub-cache"
-PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
+PUB_CACHE="$CACHE_DIR/pub-cache"
+# PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
 export PUB_CACHE
 mkdir -p $PUB_CACHE
 
@@ -70,8 +70,8 @@ CAN_DART_RUN=`/app/dart-sdk/bin/dart --version`
 message "----> Dart reports version: $CAN_DART_RUN"
 
 message "----> Install packages"
-cd $BUILD_DIR
 
+cd $BUILD_DIR
 
 for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
     pub_dir=`dirname $filename`
