@@ -84,8 +84,8 @@ done
 # move packages from cache directory into build directory
 message "*** Copying downloaded packages from $CACHE_DIR to $BUILD_DIR/$PACKAGES_DIR"
 cd $CACHE_DIR
-# cp -r $CACHE_DIR/pub-cache $BUILD_DIR/$PACKAGES_DIR
-mv $CACHE_DIR/pub-cache $BUILD_DIR/$PACKAGES_DIR
+cp -r $CACHE_DIR/pub-cache $BUILD_DIR/$PACKAGES_DIR
+# mv $CACHE_DIR/pub-cache $BUILD_DIR/$PACKAGES_DIR
 
 # if [ -d '/app/tmp/repo.git/.cache/pub-cache/hosted/pub.dartlang.org/http-0.9.0' ]; then 
 #     message "*** Package http 0.9.0 checks in."
