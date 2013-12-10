@@ -2,10 +2,6 @@
 # Build pack:
 # bin/compile <build-dir> <cache-dir>
 
-# Buildpack         => browser -> /app/tmp/cache/pub-cache/hosted/pub.dartlang.org/browser-0.9.0/lib
-# Default pub get   => browser -> /app/.pub-cache/hosted/pub.dartlang.org/browser-0.9.0/lib
-# Cache directory   => tmp/repo.git/.cache/pub-cache/hosted/pub.dartlang.org/browser-0.9.0/lib
-
 # print out to console.
 function message {
   echo "$1"
@@ -24,8 +20,8 @@ CACHE_DIR=$(cd "$2/" && pwd)
 PACKAGES_DIR="tmp/repo.git/.cache"
 
 # this variable is used by pub to determine the package install location
-# PUB_CACHE="$CACHE_DIR/pub-cache"
-PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
+PUB_CACHE="$CACHE_DIR/pub-cache"
+# PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
 export PUB_CACHE
 mkdir -p $PUB_CACHE
 
