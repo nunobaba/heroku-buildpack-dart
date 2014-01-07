@@ -20,8 +20,8 @@ CACHE_DIR=$(cd "$2/" && pwd)
 PACKAGES_DIR="tmp/repo.git/.cache"
 
 # this variable is used by pub to determine the package install location
-# PUB_CACHE="$CACHE_DIR/pub-cache"
-PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
+PUB_CACHE="$CACHE_DIR/pub-cache"
+#PUB_CACHE="/app/tmp/repo.git/.cache/pub-cache"
 export PUB_CACHE
 mkdir -p $PUB_CACHE
 
